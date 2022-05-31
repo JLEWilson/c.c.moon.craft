@@ -1,0 +1,22 @@
+{
+  "[typescript, tsx]": {
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "cSpell.words": [
+    "binode",
+    "Chainable",
+    "eyecuelab",
+    "healthcheck",
+    "Parens",
+    "signup",
+    "tailwindcss",
+    "textbox",
+    "typecheck",
+    "vite",
+    "vitejs",
+    "Vitest"
+  ]
+}
