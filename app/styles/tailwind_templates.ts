@@ -7,3 +7,4 @@ a14c0b
 6d543e
 b7daf2 */
 export const centered = [`flex`, `items-center`, `justify-center`]
+export const header = [`text-3xl`, `font-bold`]
