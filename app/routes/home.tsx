@@ -1,11 +1,25 @@
 import type { FC } from "react"
 
+import { useLoaderData, json } from "remix"
+import type { LoaderFunction } from "remix"
+
+import { requireUserId } from "~/session.server"
 import { header, centered } from "~/styles/tailwind_templates"
 import { join } from "~/utils"
 
 import NavBar from "./navbar"
 
+type LoaderData = Awaited<ReturnType<typeof getLoaderData>>
+const getLoaderData = async (request: Request) => {
+  const userId = await requireUserId(request)
+  return { userId: userId }
+}
+
+export const loader: LoaderFunction = async ({ request }) => {
+  return json(await getLoaderData(request))
+}
 const HomePage: FC = () => {
+  const { userId } = useLoaderData<LoaderData>()
   const heading = [
     `flex`,
     `items-center`,
