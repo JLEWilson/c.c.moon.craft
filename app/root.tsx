@@ -11,8 +11,10 @@ import {
 } from "remix"
 import type { LinksFunction, MetaFunction, LoaderFunction } from "remix"
 
+import NavBar from "./routes/navbar"
 import { getUser } from "./session.server"
 import tailwindStylesheetUrl from "./styles/tailwind.css"
+import { join } from "./utils"
 
 export const links: LinksFunction = () => {
   return [{ rel: `stylesheet`, href: tailwindStylesheetUrl }]
@@ -41,8 +43,11 @@ const App: FC = () => {
         <Meta />
         <Links />
       </head>
-      <body className="h-full">
-        <Outlet />
+      <body className={join(`h-auto`, `text-[#fcf9e6]`, `bg-[#6d543e]`)}>
+        <NavBar />
+        <div>
+          <Outlet />
+        </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
