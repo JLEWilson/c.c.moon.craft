@@ -24,7 +24,7 @@ const NotesPage: FC = () => {
   const user = useUser()
 
   return (
-    <div className="flex h-full min-h-screen flex-col">
+    <div className="flex h-full flex-col">
       <header className="flex items-center justify-between bg-slate-800 p-4 text-white">
         <h1 className="text-3xl font-bold">
           <Link to=".">Notes</Link>
@@ -79,7 +79,6 @@ const NotesPage: FC = () => {
         <div className="flex-1 p-6">
           <Outlet />
         </div>
-        <NavBar />
       </main>
     </div>
   )
