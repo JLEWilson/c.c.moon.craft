@@ -8,3 +8,6 @@ export type { Item }
 export async function getItem(id: Item[`id`]) {
   return prisma.item.findUnique({ where: { id } })
 }
+export async function getAllItems() {
+  return prisma.item.findMany()
+}
