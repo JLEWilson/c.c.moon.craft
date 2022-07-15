@@ -5,9 +5,16 @@ import { prisma } from "~/db.server"
 
 export type { Item }
 
-export async function getItem(id: Item[`id`]) {
+export const getItem = async (id: Item[`id`]) => {
   return prisma.item.findUnique({ where: { id } })
 }
-export async function getAllItems() {
+
+export const getAllItems = async () => {
   return prisma.item.findMany()
+}
+
+export const createItem = async (
+  item: Pick<Item, `description` | `imagePath` | `name` | `price`>,
+) => {
+  return prisma.item.create({ data: item })
 }
