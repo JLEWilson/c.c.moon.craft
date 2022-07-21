@@ -100,7 +100,11 @@ const NavBar: FC = () => {
           `mr-auto`,
           `ml-3`,
           `sm:ml-0`,
-          `animate-fade-slow`,
+          `bg-300%`,
+          `bg-clip-text`,
+          `bg-moon-gradient`,
+          `text-transparent`,
+          `animate-moon-slow`,
         )}
       >
         C.C.Moon.Craft
