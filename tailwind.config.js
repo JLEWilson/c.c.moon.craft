@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "moon-gradient": `linear-gradient(90deg, rgba(0,0,0,1) 37%, rgba(255,255,255,1) 49%, rgba(255,255,255,1) 51%, rgba(0,0,0,1) 63%)`,
+        "moon-gradient": `linear-gradient(90deg, rgba(0,0,0,1) 37%, rgba(254,252,215,1) 49%, rgba(254,252,215,1) 51%, rgba(0,0,0,1) 63%)`,
       },
       backgroundSize: {
         "auto": `auto`,
