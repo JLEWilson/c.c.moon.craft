@@ -50,3 +50,7 @@ export function validateEmail(email: unknown): email is string {
 }
 
 export const join = (...args: string[]): string => args.join(` `)
+
+export const convertToCurrency = (num: number): string => {
+  return num.toString().slice(0, -3) + `.` + num.toString().slice(-2)
+}
