@@ -3,20 +3,23 @@ import type { FC } from "react"
 import { useLoaderData, json } from "remix"
 import type { LoaderFunction } from "remix"
 
+import { getAllItems } from "~/models/item.server"
 import { requireUserId } from "~/session.server"
 import { header, centered } from "~/styles/tailwind_templates"
-import { join } from "~/utils"
+import { join, convertToCurrency } from "~/utils"
 
 import NavBar from "./navbar"
 
-// type LoaderData = Awaited<ReturnType<typeof getLoaderData>>
-// const getLoaderData = async (request: Request) => {
-//   return { userId: userId }
-// }
+type LoaderData = Awaited<ReturnType<typeof getLoaderData>>
 
-// export const loader: LoaderFunction = async ({ request }) => {
-//   return json(await getLoaderData(request))
-// }
+const getLoaderData = async (request: Request) => {
+  const items = await getAllItems()
+  return { items: items }
+}
+
+export const loader: LoaderFunction = async ({ request }) => {
+  return json(await getLoaderData(request))
+}
 const COLORS = [
   `#71816e`,
   `#fcf9e6`,
@@ -28,6 +31,7 @@ const COLORS = [
   `#b7daf2`,
 ]
 const HomePage: FC = () => {
+  const data = useLoaderData<LoaderData>()
   return (
     <>
       <h1 className={join(...header)}>
@@ -44,6 +48,15 @@ const HomePage: FC = () => {
           <div className={join(`bg-[#6d543e]`, `w-16`, `h-16`)}>{`#6d543e`}</div>
           <div className={join(`bg-[#b7daf2]`, `w-16`, `h-16`)}>{`#b7daf2`}</div>
         </div>
+      </div>
+      <div>
+        {data.items.map((item) => (
+          <div key={item.id}>
+            <h1>{item.name}</h1>
+            <h2>{item.price ? `$` + convertToCurrency(item.price) : `TBD`}</h2>
+            <p>{item.description}</p>
+          </div>
+        ))}
       </div>
     </>
   )
