@@ -3,7 +3,7 @@ import type { FC } from "react"
 import { header, centered } from "~/styles/tailwind_templates"
 import { join } from "~/utils"
 
-import NavBar from "./navbar"
+import NavBar from "../components/NavBar"
 
 const AboutPage: FC = () => {
   const heading = [
