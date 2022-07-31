@@ -11,7 +11,7 @@ import {
 } from "remix"
 import type { LinksFunction, MetaFunction, LoaderFunction } from "remix"
 
-import NavBar from "./routes/navbar"
+import NavBar from "./components/NavBar"
 import { getUser } from "./session.server"
 import tailwindStylesheetUrl from "./styles/tailwind.css"
 import { join } from "./utils"
