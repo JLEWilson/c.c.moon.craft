@@ -3,12 +3,13 @@ import type { FC } from "react"
 import { useLoaderData, json } from "remix"
 import type { LoaderFunction } from "remix"
 
+import Carousel from "~/components/Carousel"
 import { getAllItems } from "~/models/item.server"
 import { requireUserId } from "~/session.server"
 import { header, centered } from "~/styles/tailwind_templates"
 import { join, convertToCurrency } from "~/utils"
 
-import NavBar from "./navbar"
+import NavBar from "../components/NavBar"
 
 type LoaderData = Awaited<ReturnType<typeof getLoaderData>>
 
@@ -50,13 +51,7 @@ const HomePage: FC = () => {
         </div>
       </div>
       <div>
-        {data.items.map((item) => (
-          <div key={item.id}>
-            <h1>{item.name}</h1>
-            <h2>{item.price ? `$` + convertToCurrency(item.price) : `TBD`}</h2>
-            <p>{item.description}</p>
-          </div>
-        ))}
+        <Carousel items={data.items} />
       </div>
     </>
   )
