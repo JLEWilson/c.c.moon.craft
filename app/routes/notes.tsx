@@ -7,7 +7,7 @@ import { getNoteListItems } from "~/models/note.server"
 import { requireUserId } from "~/session.server"
 import { join, useUser } from "~/utils"
 
-import NavBar from "./navbar"
+import NavBar from "../components/NavBar"
 
 type LoaderData = {
   noteListItems: Awaited<ReturnType<typeof getNoteListItems>>
