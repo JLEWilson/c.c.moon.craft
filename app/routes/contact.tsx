@@ -7,7 +7,7 @@ import { requireUserId } from "~/session.server"
 import { header, centered } from "~/styles/tailwind_templates"
 import { join } from "~/utils"
 
-import NavBar from "./navbar"
+import NavBar from "../components/NavBar"
 
 // type LoaderData = Awaited<ReturnType<typeof getLoaderData>>
 // const getLoaderData = async (request: Request) => {
